@@ -1,0 +1,11 @@
+.direnv
+.direnv/flake-inputs/7xlnfnx4pc3bv0kp719jr1r8jbsxkv54-source
+
+# Nix
+flake.lock
+
+# Source directory
+src/*.hi
+src/*.o
+
+
