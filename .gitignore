@@ -8,4 +8,7 @@ flake.lock
 src/*.hi
 src/*.o
 
+# VS Code
+.vscode
+
 
