@@ -12,3 +12,5 @@ src/*.o
 .vscode
 
 
+flake.lock
+result
