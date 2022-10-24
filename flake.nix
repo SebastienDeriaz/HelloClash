@@ -88,14 +88,6 @@
             cp --no-preserve=mode,ownership -r $s $(stripHash $s)
           done
 
-          ls -la HelloClash-vhdl/Main.topEntity
-
-          for s in $vhdl; do
-            echo $s
-          done
-
-
-
           # Compile 
           quartus_sh --flow compile ${name}
 
