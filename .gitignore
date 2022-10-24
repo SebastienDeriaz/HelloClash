@@ -2,7 +2,7 @@
 .direnv/flake-inputs/7xlnfnx4pc3bv0kp719jr1r8jbsxkv54-source
 
 # Nix
-flake.lock
+result
 
 # Source directory
 src/*.hi
@@ -11,6 +11,3 @@ src/*.o
 # VS Code
 .vscode
 
-
-flake.lock
-result
