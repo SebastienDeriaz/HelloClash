@@ -15,6 +15,7 @@
 
   outputs = inputs: inputs.flake-utils.lib.eachDefaultSystem (system:
     let
+      # Temporary fix until fix-quartus pull request is accepted
       quartus-overlay = self: super: with builtins; {
         quartus-prime-lite = super.quartus-prime-lite.override {
          buildFHSUserEnv = attrs: super.buildFHSUserEnv (attrs // {
