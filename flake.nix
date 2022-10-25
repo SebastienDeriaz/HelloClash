@@ -15,9 +15,22 @@
 
   outputs = inputs: inputs.flake-utils.lib.eachDefaultSystem (system:
     let
+      quartus-overlay = self: super: with builtins; {
+        quartus-prime-lite = super.quartus-prime-lite.override {
+         buildFHSUserEnv = attrs: super.buildFHSUserEnv (attrs // {
+           # it's a bug in the quartus package
+           multiPkgs = pkgs: (attrs.multiPkgs pkgs) ++ [
+             pkgs.libxcrypt
+           ];
+         });
+        };
+      };
       pkgs = import inputs.nixpkgs {
         inherit system;
-        overlays = [ inputs.nix-filter.overlays.default ];
+        overlays = [
+          inputs.nix-filter.overlays.default
+          quartus-overlay
+        ];
         config.allowUnfree = true;
       };
       # Name of the Quartus project
@@ -58,6 +71,7 @@
       # Build binary file from VHDL source
       build = pkgs.stdenvNoCC.mkDerivation {
         inherit name;
+
         # Use of Quartus-prime-lite from nixpkgs
         nativeBuildInputs = with pkgs; [
           quartus-prime-lite
@@ -69,6 +83,7 @@
           ./pin_assignment_DE1_SoC.tcl # Location of pins in the De1-SoC
           vhdl
         ];
+        version = "22.10";
         phases = [ "buildPhase" ];
         # Main build script
         # 1) Copy all of the necessary files inside the out directory
