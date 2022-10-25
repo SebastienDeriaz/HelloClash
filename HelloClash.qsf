@@ -50,5 +50,5 @@ set_global_assignment -name QII_AUTO_PACKED_REGISTERS MINIMIZE_AREA
 # Import pin assignements
 source pin_assignment_DE1_SoC.tcl
 
-set_global_assignment -name SOURCE_FILE HelloClash-vhdl/Main.topEntity/topEntity.vhdl
-set_global_assignment -name SOURCE_FILE HelloClash-vhdl/Main.topEntity/topEntity_types.vhdl
+set_global_assignment -name SOURCE_FILE vhdl/Main.topEntity/topEntity.vhdl
+set_global_assignment -name SOURCE_FILE vhdl/Main.topEntity/topEntity_types.vhdl

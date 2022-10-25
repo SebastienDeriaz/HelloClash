@@ -40,7 +40,7 @@
 
       # Generate VHDL sources (clash)
       vhdl = pkgs.stdenvNoCC.mkDerivation {
-        name = "${name}-vhdl";
+        name = "vhdl";
         nativeBuildInputs = with pkgs; [
           quartus-prime-lite
           (haskellPackages.ghcWithPackages (ps: with ps; [
